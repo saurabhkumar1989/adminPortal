@@ -1,0 +1,107 @@
+<div>
+	<ul id="ajax" class="products-list clearfix">
+		<li class="scroll">
+			<div class="full-wrap">
+				<div class="row">
+					<div class="col-lg-12 col-sm-12 col-xs-12 col-md-12">
+						<div class="gym-header-info">
+							<b>Account Setting</b>
+						</div>
+					</div>
+				</div>
+			</div>
+		</li>
+		<li class="scroll">
+			<div class="full-wrap">
+				<div class="row password-change">
+					<div class="col-lg-12 col-sm-12 col-xs-12">
+						<div class="person-name">
+							<b>Current Information</b>
+						</div>
+					</div>
+				</div>
+				<hr>
+				<div class="row pass-info">
+					<div class="col-lg-6 col-sm-6 col-md-6 col-xs-6">
+						<div class="pass-id">
+							<b>Name</b> : {{gymOwner.name}}
+						</div>
+					</div>
+					<div class="col-lg-6 col-sm-6 col-md-6 col-xs-6">
+						<div class="cost">
+							<b>Number</b> : {{gymOwner.Number}}
+						</div>
+					</div>
+				</div>
+			</div>
+		</li>
+		<li class="scroll">
+			<div class="full-wrap">
+				<div class="row password-change">
+					<div class="col-lg-12 col-sm-12 col-xs-12">
+						<div class="person-name">
+							<b>Update Your Account Information</b>
+						</div>
+					</div>
+				</div>
+				<hr>
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="row">
+								<div class="col-md-6">
+									<form class="form-horizontal" autocomplete="off"
+										name="userForm" data-ng-submit="updateData()" novalidate>
+										<fieldset>
+											<!-- Text input-->
+											<div class="form-group"
+												data-ng-class="{ 'has-error' : userForm.updName.$invalid && !userForm.updName.$pristine }">
+												<label class="col-md-4 control-label" for="textinput">Name</label>
+												<div class="col-md-8">
+													<input id="person-name" name="updName"
+														data-ng-minlength="2" class="form-control"
+														data-ng-model="person.updated.name" type="text"
+														placeholder="Name" required>
+													<p data-ng-show="userForm.updName.$touched && userForm.updName.$invalid && !userForm.updName.$pristine"
+														class="help-block">Your name is required.</p>
+												</div>
+											</div>
+											<h1></h1>
+											<!-- Prepended text-->
+											<div class="form-group"
+												data-ng-class="{ 'has-error' :userForm.phonenumber.$touched && userForm.phonenumber.$invalid && !userForm.phonenumber.$pristine }">
+												<label class="col-md-4 control-label" for="mobilenumber">Number</label>
+												<div class="col-md-8">
+													<div class="input-group">
+														<span class="input-group-addon">+91</span> <input type="number" id="person-number" name="phonenumber"
+															data-ng-minlength="10" data-ng-maxlength="10" data-ng-pattern="/^[7-9][0-9]{9}$/" name="mobilenumber" data-ng-model="person.updated.mobilenumber" class="form-control" required="required"
+															placeholder="Mobile Number">
+													</div>
+													<p class="help-block">keep your mobile number up to	date</p>
+													<p data-ng-show="userForm.phonenumber.$touched && userForm.phonenumber.$invalid && !userForm.phonenumber.$pristine"
+														class="help-block">Please enter a Valid number.</p>
+													<p data-ng-show="userForm.phonenumber.$error.maxlength"
+														class="help-block">Please check your mobile number, do
+														not include 0 before your number.</p>
+												</div>
+											</div>
+
+											<!-- Button -->
+											<div class="form-group gymAccUpdatebtn">
+												<div class="col-sm-offset-4 col-sm-4">
+													<button type="submit" id="submit"
+														data-ng-disabled="!userForm.$valid"
+														class="btn btn-danger btn-md">Submit</button>
+												</div>
+											</div>
+										</fieldset>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</li>
+	</ul>
+</div>

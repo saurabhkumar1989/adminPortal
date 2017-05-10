@@ -1,0 +1,211 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+<title>FitnessKey</title>
+<link href="css/layout.css" rel="stylesheet" type="text/css">
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+<link href="css/owl.css" rel="stylesheet" type="text/css">
+<link href="css/bootstrap-select.min.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="js/html5.js"></script>
+</head>
+<body class="listing-bg" data-ng-app="fitness" data-ng-controller="contactusCtrl">
+	<ul class="mobile-navigation clearfix">
+  <div class="vcenter-table">
+    <div class="vcenter-table-cell">
+      <li><a href="home.html" class="branding menu-brand"><img src="images/logo.png" /></a></li>
+      <li><a href="home.html">Home</a></li>
+      <li class="twoNav" data-ng-hide='userLogin'><a href="#" class="login-bgt">Login</a>/<a href="#" class="signup-bgt">Sign Up</a></li>
+      <li><a href="#" data-ng-show='userLogin'>Workout History</a></li>
+      <li><a href="#" data-ng-show='userLogin'>Change Password</a></li>
+      <li><a href="#" data-ng-show='userLogin'>Logout</a></li>
+      <!-- <li><a href="#">Fitness Club</a></li>
+      <li><a href="#">Classes</a></li> -->
+    </div>
+  </div>
+</ul>
+	<div class="wrapper clearfix">
+		<!-- Header -->
+		<header class="normal-header clearfix">
+			<div class="container clearfix">
+				<div class="toggle-nav">
+					<span class="fline"></span> <span class="lline"> </span> <span
+						class="act"></span>
+				</div>
+				<!-- Branding -->
+				<a href="home.html" class="branding"><img src="images/logo.png" /></a>
+				<!-- Branding End -->
+				<!-- Up navigation -->
+				<ul class="upnavigation clearfix">
+			        <li class="account" data-ng-show='userLogin'><a href="#">My Account</a></li>
+			        <li class="account" data-ng-show='userLogin'><a href="#">Logout</a></li>
+			        <li class="login" data-ng-hide='userLogin'><a href="#" class="login-bgt">Log In</a></li>
+			        <li class="signup" data-ng-hide='userLogin'><a href="#" class="signup-bgt">Sign Up</a></li>
+      			</ul>
+				<!-- Up navigation End  -->
+				<!-- Toggle -->
+
+			</div>
+		</header>
+		<!-- Header End  -->
+		<!-- Content -->
+
+		<div class="container">
+			<!-- Changes by saurabh -->
+			<div class="row">
+				<div class="col-lg-9">
+					<section class="clearfix">
+						<div class="clearfix">
+							<div class="common-paddling3">
+								<div class="for-partners">
+									<form id="profileForm" class="form-horizontal" autocomplete="off" name="userForm" data-ng-submit="submitForm()" novalidate>
+										<p>If you have any feedback or questions, or if you're
+											having problems using the website please write us below. Our
+											support team will always get back to you as quick as we can.
+											We’re pretty quick!</p>
+										<h2>Contact Information</h2>
+							        <!-- NAME -->
+							        <div class="form-group" data-ng-class="{ 'has-error' : userForm.name.$invalid && !userForm.name.$pristine }">
+							            <label class="col-lg-2 col-sm-3 control-label">Name</label>
+							            <div class="col-lg-10 col-sm-9">
+							            <input type="text" name="name" class="form-control" data-ng-minlength="2" data-ng-maxlength="60" data-ng-model="user.name" required>
+							            <p data-ng-show="userForm.name.$touched && userForm.name.$invalid && !userForm.name.$pristine" class="help-block">Your name is required.</p>
+							        	</div>
+							        </div>
+							       <!-- PHONE NUMBER -->
+							        <div class="form-group" data-ng-class="{ 'has-error' :userForm.phonenumber.$touched && userForm.phonenumber.$invalid && !userForm.phonenumber.$pristine }">
+							            <label class="col-lg-2 col-sm-3 control-label">Phone Number</label>
+							            <div class="col-lg-10 col-sm-9">
+							             <div class="input-group">
+							              <span class="input-group-addon">+91</span>
+							              <input type="number" name="phonenumber" class="form-control" data-ng-pattern="/^[7-9][0-9]{9}$/" data-ng-minlength="10" data-ng-maxlength="10" data-ng-model="user.phonenumber" required>
+							        	 </div>
+							        	 <p data-ng-show="userForm.phonenumber.$touched && userForm.phonenumber.$invalid && !userForm.phonenumber.$pristine" class="help-block">Please enter a Valid number.</p>
+							        	 <p data-ng-show="userForm.phonenumber.$error.maxlength" class="help-block">Please check your mobile number, do not include 0 before your number.</p>
+							        	</div>
+							        	<!--  data-ng-show="userForm.phonenumber.$touched && userForm.phonenumber.$invalid && !userForm.phonenumber.$pristine" -->
+							        </div>         
+							        <!-- EMAIL -->
+							        <div class="form-group" data-ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
+							            <label class="col-lg-2 col-sm-3 control-label">Email</label>
+							            <div class="col-lg-10 col-sm-9">
+							            <input type="email" name="email" class="form-control" data-ng-maxlength="50" data-ng-model="user.email" required>
+							            <p data-ng-show="userForm.email.$touched && userForm.email.$invalid && !userForm.email.$pristine" class="help-block">Enter a valid email.</p>
+							            </div>
+							        </div>
+							      <!-- USERQUERY -->
+							        <div class="form-group" data-ng-class="{ 'has-error' : userForm.usequery.$invalid && !userForm.usequery.$pristine }">
+							             <label class="col-lg-2 col-sm-3 control-label">Your Query</label>
+							             <div class="col-lg-10 col-sm-9">
+							            <textarea name="usequery" class="form-control" placeholder="Brief information about your problem"
+							            data-ng-model="user.usequery" data-ng-minlength="5" data-ng-maxlength="300" data-ng-required="true"></textarea>
+							            <p data-ng-show="userForm.usequery.$touched && userForm.usequery.$invalid &&  userForm.usequery.$error.minlength" class="help-block">Please describe your problem little bit more.</p>					            
+							            <p data-ng-show="userForm.usequery.$touched && userForm.usequery.$invalid &&  userForm.usequery.$error.maxlength" class="help-block">Entered Information is too long, please Eamil us your query.</p>
+							            </div>
+							        </div>
+							        
+							        <div class="form-group">
+							            <div class="col-lg-10 col-sm-9 col-xs-12 col-sm-offset-3  col-xs-offset-0 col-lg-offset-2 control-label contactform">
+							            	 <button type="submit" id="submit" data-ng-disabled="!userForm.$valid" class="btn btn-danger btn-md">Submit</button>
+							              </div>
+							         </div>
+							       
+							    </form>	
+								</div>
+								<!--end for-partners-->
+							</div>
+						</div>
+					</section>
+				</div>
+				<div class="col-lg-3">
+					<div class="office-details-wrap clearfix">
+						<div class="clearfix">
+
+							<div class="office-heading">Office Detail</div>
+							<div class="office-detail clearfix">
+								<div class="row">
+									<div class="col-lg-12 col-sm-12">
+										<h4>FitnessKey</h4>
+										<p>
+											Our Address, Sarjapur Road New Delhi - 321001 India<br>
+											Ph: +91 000000000<br> Fax: +91 00000000<br>
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="push"></div>
+		</div>
+	</div>
+	<footer class="clearfix">
+		<div class="container clearfix">
+			<div class="social-navigation">
+				<a href="#"><i class="fa fa-twitter"></i></a> <a href="#"><i
+					class="fa fa-facebook"></i></a> <a href="#"><i
+					class="fa fa-google-plus"></i></a>
+			</div>
+			<div class="copyright">Copyright &copy; 2015 FitnessKey</div>
+			<div class="full-wrap">
+				<ul class="footer-nav">
+					<li><a href="#">About</a></li>
+					<li><a href="#">For Partners</a></li>
+					<li><a href="#">FAQ</a></li>
+					<li><a href="#">Contact</a></li>
+					<li><a href="#">Blog</a></li>
+					<li><a href="#">Terms of Use</a></li>
+					<li><a href="#">Privacy Policy</a></li>
+				</ul>
+			</div>
+		</div>
+	</footer>
+	<!-- Angular Resource -->
+	<script src="js/shared/angular.min.js"></script>
+	<script src="https://code.angularjs.org/1.4.3/angular-resource.js"></script>
+
+	<!-- For loading Bar -->
+	<script
+		src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-animate.min.js"></script>
+	<link rel="stylesheet"
+		href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script
+		src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<!-- Dropdown module -->
+	<script src="js/dropdown/nya-bs-public.js"></script>
+	<script src="js/dropdown/service-config.js"></script>
+	<script src="js/dropdown/nya-bs-select-ctrl.js"></script>
+	<script src="js/dropdown/nya-bs-select.js"></script>
+	<script src="js/dropdown/nya-bs-option.js"></script>
+
+	<!-- Spinner File -->
+	<script src="js/spin.min.js"></script>
+	<script src="js/angular-spinner.js"></script>
+	<!-- Angular Module -->
+	<!-- Auto Complete -->
+	<script
+		src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.6/angular-touch.min.js"></script>
+	<script src="js/angucomplete-alt.js"></script>
+
+	<!-- Module -->
+	<script src="js/fitness.js"></script>
+	<!-- Service -->
+	<script src="js/services/service1.js"></script>
+	<!-- Controller -->
+	<script src="js/controllers/ctrl.js"></script>
+
+	<!-- JS -->
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/custom.js"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/bootstrap-hover-dropdown.min.js"></script>
+	<!-- JS ends -->
+</body>
+</html>

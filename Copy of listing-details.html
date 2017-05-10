@@ -1,0 +1,669 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport"content="initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+<title>FitnessKey</title>
+<link href="css/layout.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="css/creditly.css">
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+<link href="css/owl.css" rel="stylesheet" type="text/css">
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+<link rel="stylesheet" href="css/nya-bs-select.css" />
+<link rel="stylesheet"href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<link href="css/listing-detail.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="js/html5.js"></script>
+<script type="text/javascript"src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script	src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.1/angular-resource.js"></script>
+<!-- Map API -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlKdF-Y0Ik7DZGSshPi1RSHu4jTHnQnkw"></script>
+<!-- For Date Select -->
+<link rel="stylesheet" type="text/css" href="css/angular-datepicker.css">
+<link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="css/autocomplete_listing.css"/>
+<link rel="stylesheet" href="css/structure.css"/>
+<link rel="stylesheet" href="css/angucomplete-alt.css"/>
+
+</head>
+
+<body class="listing-bg" data-ng-app="fitness" data-ng-controller="listDtailCtrl">
+	<ul class="mobile-navigation clearfix">
+  <div class="vcenter-table">
+    <div class="vcenter-table-cell">
+      <li><a href="home.html" class="branding menu-brand"><img src="images/logo.png" /></a></li>
+      <li><a href="home.html">Home</a></li>
+      <li class="twoNav" data-ng-hide='userLogin'><a href="#" class="login-bgt">Login</a>/<a href="#" class="signup-bgt">Sign Up</a></li>
+      <li><a href="#" data-ng-show='userLogin'>Workout History</a></li>
+      <li><a href="#" data-ng-show='userLogin'>Change Password</a></li>
+      <li><a href="#" data-ng-show='userLogin'>Logout</a></li>
+      <!-- <li><a href="#">Fitness Club</a></li>
+      <li><a href="#">Classes</a></li> -->
+    </div>
+  </div>
+</ul>
+	<div class="wrapper clearfix" >
+		<!-- Header -->
+		<header class="normal-header clearfix">
+			<div class="container clearfix">
+				<div class="toggle-nav">
+					<span class="fline"></span> <span class="lline"> </span> <span
+						class="act"></span>
+				</div>
+				<!-- Branding -->
+				<a href="home.html" class="branding"><img src="images/logo.png" /></a>
+				<!-- Branding End -->
+				<!-- Up navigation -->
+				<ul class="upnavigation clearfix">
+					<li class="account" data-ng-show='userLogin'><a href="#">My	Account</a></li>
+					<li class="account" data-ng-show='userLogin'><a href="#">Logout</a></li>
+					<li class="login" data-ng-hide='userLogin'><a href="#"	class="login-bgt">Log In</a></li>
+					<li class="signup" data-ng-hide='userLogin'><a href="#"	class="signup-bgt">Sign Up</a></li>
+				</ul>
+				<!-- Up navigation End  -->
+				<!-- Toggle -->
+
+			</div>
+		</header>
+		<!-- Header End  -->
+		<!-- Content -->
+		<section class="clearfix" >
+			<div class="common-paddling2 clearfix">
+				<div class="container clearfix">
+					<a href="listing.html" class="back-search"><i
+						class="fa fa-angle-left"></i> Back to Search Results</a>
+					<!--<div class="back-next-btn clearfix"> <a href="#" class="active"><i class="fa fa-angle-left"></i></a> <a href="#"><i class="fa fa-angle-right"></i></a> </div>-->
+					<div class="clear"></div>
+					<div class="row">
+						<div class="col-lg-9">
+							<div class="details-wrap clearfix">
+								<div class="products-slider clearfix">
+									<div id="pro-slider" class="owl-carousel owl-theme">
+										<div class="item">
+											<figure>
+												<img data-ng-src="{{testData.data.imgpath[0]}}" />
+											</figure>
+										</div>
+										<div class="item">
+											<figure>
+												<img data-ng-src="{{testData.data.imgpath[1]}}" />
+											</figure>
+										</div>
+										<div class="item">
+											<figure>
+												<img data-ng-src="{{testData.data.imgpath[3]}}" />
+											</figure>
+										</div>
+									</div>
+									<div class="row">
+										<div class="slider-details clearfix col-lg-12 col-md-12 col-col-sm-12 col-col-xs-12 ">
+											<div class="head">
+												<a href="#">{{testData.data.shrtText}}</a> <span>{{testData.data.priAddress}}
+													<a href="#map-directions" class="view-map sl-btn"><i
+														class="fa fa-map-marker"></i> View on Map</a>
+												</span>
+											</div>
+											<a href="#user-reviews" class="reviews sl-btn">
+												<figure>
+													<img src="images/search_ico.png">
+												</figure> <span>5 reviews</span>
+											</a>
+										</div>
+									</div>
+									<div class="customNavigation">
+										<a class="btn prev"><i class="fa fa-angle-left"></i></a> <a
+											class="btn next"><i class="fa fa-angle-right"></i></a>
+									</div>
+								</div>
+								<h3 class="details-heading">Gym Details</h3>
+								<div class="products-details-tabs clearfix">
+									<ul class="nav nav-tabs responsive" id="myTab">
+										<li class="active"><a href="#about">About</a></li>
+										<li><a href="#activities"> Activites </a></li>
+										<li><a href="#amenities">Amenities </a></li>
+										<li><a href="#timings">Timings</a></li>
+									</ul>
+									<div class="tab-content responsive">
+										<div class="tab-pane active" id="about">
+											{{testData.data.lngText}}</div>
+										<div class="tab-pane" id="activities">
+											<ul class="row">
+												<li class="col-sm-4 col-xs-6"
+													ng-repeat="class in testData.data.classes"><span>{{class}}<sup
+														class="pink"></sup></span></li>
+											</ul>
+										</div>
+										<div class="tab-pane" id="amenities">
+											<ul class="row">
+												<li class="col-sm-4 col-xs-6"
+													ng-repeat="class in testData.data.amenities"><span>{{class}}<sup
+														class="pink"></sup></span></li>
+											</ul>
+										</div>
+										<div class="tab-pane" id="timings">
+											<ul class="row">
+												<div class="tab-pane active" id="tab1-4">
+													<div class="tab-pane-inner">
+														<table class="table">
+															<tbody
+																data-ng-repeat="(day,time) in testData.data.timings">
+																<tr>
+																	<td class="w-30p uppercase body-color">{{day}}</td>
+																	<td>{{time}}</td>
+																</tr>
+															</tbody>
+														</table>
+													</div>
+												</div>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<h3 id="user-reviews" class="details-heading">Reviews</h3>
+								<ul class="reviews-list clearfix">
+									<li>
+										<figure>
+											<img src="images/img7.jpg">
+										</figure>
+										<div class="full-wrap">
+											<div class="reviews-up clearfix">
+												<h3>Deepinder Goyal</h3>
+												<div class="rating">
+													<img src="images/search_ico.png">
+												</div>
+												<span class="date">Jul 21, 2015</span>
+											</div>
+											<p>Excellent staff and friendly atmosphere.</p>
+										</div>
+									</li>
+									<li>
+										<figure>
+											<img src="images/img8.jpg">
+										</figure>
+										<div class="full-wrap">
+											<div class="reviews-up clearfix">
+												<h3>Manas Sanghvi</h3>
+												<div class="rating">
+													<img src="images/search_ico.png">
+												</div>
+												<span class="date">Feb 01, 2015</span>
+											</div>
+											<p>Excellent staff and friendly atmosphere.</p>
+										</div>
+									</li>
+								</ul>
+								<h3 id="map-directions" class="details-heading">Map &
+									Directions</h3>
+								<div class="map-wrap clearfix">
+										<div id="map" class="gymLocation"></div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-3">
+							<div class="details-wrap clearfix">
+								<div class="by-pass-wrapper buy-desktop clearfix">
+									<h3>Buy Pass</h3>
+									<div class="pad-bypass clearfix">						
+									<div class="row">
+											<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+												<span class="select-date">Select Date</span>
+											</div>
+											<div class="date-dropdown col-lg-6 col-md-6 col-sm-6 col-xs-6">
+												<form role="form">
+											    <div class="form-group">
+											      <div class="datepicker"
+												  date-set-hidden="false"
+												  date-set="{{date21}}"
+											      date-format='MMM d, y'
+											      date-min-limit="{{date21}}"
+											      date-max-limit="08/08/2016"
+											      button-prev='<i class="fa fa-arrow-circle-left"></i>'
+											      button-next='<i class="fa fa-arrow-circle-right"></i>'>
+											      <input ng-model="date2" id="date-pick" type="text" class="angular-datepicker-input"/>
+											    </div>
+											    </div>
+											  </form>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+												<span class="select-date">Select Time</span>
+											</div>
+											<div class="date-dropdown col-lg-6 col-md-6 col-sm-6 col-xs-6">
+												<form role="form">
+											    <div class="form-group">
+											    <div class="form-group">
+											      <!-- <select class="form-control" name="repeatSelect" id="repeatSelect" data-ng-model="data.timeSelect">
+      												<option data-ng-repeat="option in data.availableOptions" value="{{option.id}}">{{option.name}}</option>
+    											  </select> -->
+    											  <div class="gym-search col-lg-6 col-md-6 col-sm-6 col-xs-6" id="gym-search">
+													<ol id="values-example" class="nya-bs-select" data-ng-model="data.timeSelect" data-ng-change=click1()>
+														<li nya-bs-option="option in options">
+														<a> {{option}} 
+														<span class="glyphicon glyphicon-ok check-mark"></span>
+														</a>
+														</li>
+													</ol>
+												</div>
+											      <!-- <select class="form-control" id="sel1">
+											        <option>5 AM to 5.30 AM</option>
+											        <option>2</option>
+											        <option>3</option>
+											        <option>4</option>
+											      </select> -->
+											    </div>
+											  </form>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+												<span class="bydays">{{testData.data.servicesList[0].spServiceShortTxt}}</span>
+											</div>
+											<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+												<span class="byprice">INR
+													{{testData.data.servicesList[0].cost}}</span>
+											</div>
+										</div>
+										here-->{{isHide}}
+										<a href="#" class="buyNow" data-toggle="modal"
+											data-target="#payment-popup"><span><img
+												src="images/buy_icowht.png"> Buy Now</span></a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- <button type="button" class="btn btn-primary" data-toggle="modal"
+				data-target="#payment-popup">Open modal for @mdo</button> -->
+
+			<div class="modal fade" id="payment-popup" tabindex="-1"
+				role="dialog" aria-labelledby="exampleModalLabel">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header" id="buy-pass-header">
+							<button type="button" class="close" data-dismiss="modal"
+								aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+							<h4 class="pass-title" id="exampleModalLabel">Pass
+								Information & Payment Option</h4>
+						</div>
+						<div class="modal-body">
+							<div class="gym-info-buy">
+								<div class="row">
+									<div class="section-info  col-md-3" id="section-info">Pass
+										Information</div>
+								</div>
+								<div class="row">
+									<div class="col-md-3 col-xs-3">
+										<b>Gym Name:</b>
+									</div>
+									<div class="col-md-3 col-xs-3">Gold Gym</div>
+									<div class="col-md-3 col-xs-3">
+										<b>Pass Cost:</b>
+									</div>
+									<div class="col-md-3 col-xs-3">{{testData.data.servicesList[0].cost}}</div>
+								</div>
+							</div>
+							<hr>
+							<div class="user-info-buy">
+								<div class="row">
+									<div class="section-info col-md-3" id="section-info">User
+										Information</div>
+								</div>
+								<form class="form-horizontal">
+									<div class="form-group">
+										<label for="user-name" class="col-sm-2 control-label">Name</label>
+										<div class="col-sm-6">
+											<input type="text" class="form-control" id="user-name"
+												placeholder="Full Name">
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="user-email" class="col-sm-2 control-label">Email</label>
+										<div class="col-sm-6">
+											<input type="text" class="form-control" id="user-email"
+												placeholder="Email">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="control-label col-sm-2" for="user-mobile">Mobile
+											Number</label>
+										<div class="col-sm-6">
+											<div class="input-group">
+												<span class="input-group-addon">+91</span> <input
+													type="text" class="form-control" id="user-mobile">
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+							<hr>
+							<div class="user-payment">
+								<div class="row">
+									<div class="section-info col-md-3" id="section-info">Payment
+										Option</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12">
+										<ul class="nav nav-tabs payment-tab">
+											<li class="active"><a data-toggle="tab" href="#home">Debit
+													Card</a></li>
+											<li><a data-toggle="tab" href="#menu1">Credit Card</a></li>
+											<li><a data-toggle="tab" href="#menu2">Option 3</a></li>
+											<li><a data-toggle="tab" href="#menu3">Option 4</a></li>
+										</ul>
+									</div>
+									<div class="col-md-12">
+										<div class="tab-content">
+											<div id="home" class="tab-pane fade in active">
+												<h6></h6>
+												<form>
+													<section class="creditly-wrapper">
+														<div class="credit-card-wrapper">
+															<div class="first-row form-group">
+																<div class="col-sm-6 col-sm-6 controls">
+																	<label class="control-label">Card Number</label> <input
+																		class="number credit-card-number form-control"
+																		type="text" name="number" id="user-card"
+																		maxlength="16" inputmode="numeric"
+																		autocomplete="cc-number" autocompletetype="cc-number"
+																		x-autocompletetype="cc-number"
+																		placeholder="&#149;&#149;&#149;&#149; &#149;&#149;&#149;&#149; &#149;&#149;&#149;&#149; &#149;&#149;&#149;&#149;">
+																</div>
+
+																<div class="col-sm-3 col-xs-3 controls">
+																	<label class="control-label">CVV</label> <input
+																		class="security-code form-control"
+																		·
+              inputmode="numeric" type="text"
+																		name="security-code" placeholder="&#149;&#149;&#149;">
+																</div>
+
+															</div>
+															<div class="second-row form-group">
+																<div class="col-sm-6 col-xs-6 controls">
+																	<label class="control-label">Name on Card</label> <input
+																		class="billing-address-name form-control" type="text"
+																		name="name" placeholder="">
+																</div>
+																<div class="col-sm-3 col-xs-3 controls">
+																	<label class="control-label">Expiration</label> <input
+																		class="expiration-month-and-year form-control"
+																		type="text" name="expiration-month-and-year"
+																		placeholder="MM / YY">
+																</div>
+															</div>
+															<div class="card-type"></div>
+														</div>
+													</section>
+												</form>
+
+											</div>
+											<div id="menu1" class="tab-pane fade">
+												<h3>Credit Card</h3>
+												<p>Ut enim ad minim veniam, quis nostrud exercitation
+													ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+											</div>
+											<div id="menu2" class="tab-pane fade">
+												<h3>Menu 2</h3>
+												<p>Sed ut perspiciatis unde omnis iste natus error sit
+													voluptatem accusantium doloremque laudantium, totam rem
+													aperiam.</p>
+											</div>
+											<div id="menu3" class="tab-pane fade">
+												<h3>Menu 3</h3>
+												<p>Eaque ipsa quae ab illo inventore veritatis et quasi
+													architecto beatae vitae dicta sunt explicabo.</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default"
+								data-dismiss="modal" id="closebtn-pay-popup">Close</button>
+							<button type="button" class="btn btn-primary"
+								id="paybtn-pay-popup">Pay</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<footer class="clearfix">
+			<div class="container clearfix">
+				<div class="social-navigation">
+					<a href="#"><i class="fa fa-twitter"></i></a> <a href="#"><i
+						class="fa fa-facebook"></i></a> <a href="#"><i
+						class="fa fa-google-plus"></i></a>
+				</div>
+				<div class="copyright">Copyright &copy; 2015 FitnessKey</div>
+				<div class="full-wrap">
+					<div class="full-wrap">
+						<ul class="footer-nav">
+							<!-- <li><a href="#">About</a></li> -->
+							<li><a href="onboarding.html">For Partners</a></li>
+							<li><a href="FAQ.html">FAQ</a></li>
+							<!-- <li><a href="#">Contact</a></li> -->
+							<!-- <li><a href="#">Blog</a></li> -->
+							<li><a href="terms-of-use.html">Terms of Use</a></li>
+							<li><a href="privacy-policy.html">Privacy Policy</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+	<!-- Login And Signup -->
+	<div class="popup-overlay"></div>
+	<div class="close-popup">✕</div>
+	<div class="popups-main-wrapper">
+		<div class="popup-ins-wrapper">
+			<ul class="popup-nav-list">
+				<li><a href="#" class="logIn-btn">Log in</a></li>
+				<li><a href="#" class="signUp-btn">Sign up</a></li>
+			</ul>
+			<div class="login-popup popup-content-wrapper">
+				<a href="#" class="login-with-social"><img
+					src="images/facebook-login.png" /></a> <a href="#"
+					class="login-with-social"><img src="images/gplus_btn.png" /></a>
+				<div class="popup-or">or</div>
+				<div class="inp-box">
+					<input type="text" name="" value="" placeholder="Email" />
+				</div>
+				<div class="inp-box">
+					<input type="password" name="" value="" placeholder="Password" />
+				</div>
+				<button type="submit" class="popup-login-btn">Log In</button>
+				<div class="poppup-center-text">
+					<a href="#">Forgot my password?</a>
+				</div>
+			</div>
+			<div class="signup-popup popup-content-wrapper">
+				<a href="#" class="login-with-social"><img
+					src="images/facebook-login.png" /></a> <a href="#"
+					class="login-with-social"><img src="images/gplus_btn.png" /></a>
+				<div class="popup-or">or</div>
+				<div class="inp-box">
+					<input type="text" name="" value="" placeholder="Full Name" />
+				</div>
+				<div class="inp-box">
+					<input type="text" name="" value="" placeholder="Email" />
+				</div>
+				<div class="inp-box">
+					<input type="password" name="" value="" placeholder="Password" />
+				</div>
+				<button type="submit" class="popup-login-btn">Sign Up</button>
+				<div class="poppup-center-text">
+					By creating an account, I accept FitnessKey's <a href="#">Terms
+						of Service</a>.
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Spinner File -->
+	<script src="js/spin.min.js"></script>
+	<script src="js/angular-spinner.js"></script>
+	<!-- Dropdown module -->
+	<script src="js/dropdown/nya-bs-public.js"></script>
+	<script src="js/dropdown/service-config.js"></script>
+	<script src="js/dropdown/nya-bs-select-ctrl.js"></script>
+	<script src="js/dropdown/nya-bs-select.js"></script>
+	<script src="js/dropdown/nya-bs-option.js"></script>
+	<!-- Angular Module -->
+
+	<!-- Module -->
+	<script src="js/fitness.js"></script>
+	<!-- Service -->
+	<script src="js/services/service1.js"></script>
+	<!-- Controller -->
+	<script src="js/controllers/ctrl.js"></script>
+
+	<!-- JS -->
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/custom.js"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/bootstrap-hover-dropdown.min.js"></script>
+	<script src="js/bootstrap-select.min.js"></script>
+	<script src="js/jquery.lazyload-any.js"></script>
+	<script src="js/responsive-tabs.js"></script>
+	<script>
+		$(document).ready(function() {
+			$('.js-activated').dropdownHover().dropdown();
+			$('.selectpicker').selectpicker();
+
+			var owl = $("#pro-slider");
+			owl.owlCarousel({
+				slideSpeed : 1000,
+				paginationSpeed : 1000,
+				singleItem : true
+			});
+			// Custom Navigation Events
+			$(".next").click(function() {
+				owl.trigger('owl.next');
+			})
+			$(".prev").click(function() {
+				owl.trigger('owl.prev');
+			})
+			$('#myTab a').click(function(e) {
+				e.preventDefault();
+				$(this).tab('show');
+			});
+
+			var navigationtop = $(".buy-desktop").offset().top;
+			$(window).scroll(function() {
+				if ($(this).scrollTop() > navigationtop - 10) {
+					$('.buy-desktop').addClass("fixed");
+				} else {
+					$('.buy-desktop').removeClass("fixed");
+				}
+			});
+		});
+		(function($) {
+			fakewaffle.responsiveTabs([ 'xs', 'sm' ]);
+		})(jQuery);
+	</script>
+	<script type="text/javascript" src="js/creditly.js"></script>
+	<script src="js/jquery.creditCardValidator.js"></script>
+	<script type="text/javascript">
+		var $cardinput = $('#user-card');
+		$('#user-card')
+				.validateCreditCard(
+						function(result) {
+							console.log(result);
+							console.log(result.luhn_valid);
+							if (result.card_type != null && result.luhn_valid) /* && result.card_type.luhn_valid */
+							{
+								switch (result.card_type.name) {
+								case "visa":
+									$cardinput.css('background-position',
+											'3px -34px');
+									$cardinput.addClass('card_visa');
+									break;
+
+								case "visa_electron":
+									$cardinput.css('background-position',
+											'3px -72px');
+									$cardinput.addClass('card_visa_electron');
+									break;
+
+								case "mastercard":
+									$cardinput.css('background-position',
+											'3px -110px');
+									$cardinput.addClass('card_mastercard');
+									break;
+
+								case "maestro":
+									$cardinput.css('background-position',
+											'3px -148px');
+									$cardinput.addClass('card_maestro');
+									break;
+
+								case "discover":
+									$cardinput.css('background-position',
+											'3px -186px');
+									$cardinput.addClass('card_discover');
+									break;
+
+								case "amex":
+									$cardinput.css('background-position',
+											'3px -223px');
+									$cardinput.addClass('card_amex');
+									break;
+
+								default:
+									$cardinput.css('background-position',
+											'3px 3px');
+									break;
+								}
+							} else {
+								$cardinput
+										.css('background-position', '3px 3px');
+							}
+
+							// Check for valid card numbere - only show validation checks for invalid Luhn when length is correct so as not to confuse user as they type.
+							if (result.length_valid
+									|| $cardinput.val().length > 16) {
+								if (result.luhn_valid) {
+									$cardinput.parent()
+											.removeClass('has-error').addClass(
+													'has-success');
+								} else {
+									$cardinput.parent().removeClass(
+											'has-success')
+											.addClass('has-error');
+								}
+							} else {
+								$cardinput.parent().removeClass('has-success')
+										.removeClass('has-error');
+							}
+						});
+	</script>
+
+
+	<script type="text/javascript">
+		/* for CVV and card digit formating  */
+		$(function() {
+			var creditly = Creditly.initialize(
+					'.creditly-wrapper .expiration-month-and-year',
+					/* '.creditly-wrapper .credit-card-number',  */
+					'.creditly-wrapper .security-code',
+					'.creditly-wrapper .card-type');
+		});
+	</script>
+	<!-- Auto Complete -->
+	<script
+		src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.6/angular-touch.min.js"></script>
+	<script src="js/angucomplete-alt.js"></script>
+	
+<!-- Date Picker -->
+<script type="text/javascript" src="js/angular-datepicker.js"></script>
+	<!-- JS ends -->
+</body>
+</html>

@@ -1,0 +1,214 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
+<title>FitnessKey</title>
+<link href="../css/layout.css" rel="stylesheet" type="text/css">
+<link href="../css/bootstrap.css" rel="stylesheet" type="text/css">
+<link href="../css/owl.css" rel="stylesheet" type="text/css">
+<link href="../css/bootstrap-select.min.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="../js/html5.js"></script>
+<link href="../css/bootstrap.css" rel="stylesheet">
+<link href="../css/style.css" rel="stylesheet">
+<!-- Angular Resource -->
+<script src="../js/shared/angular.min.js"></script>
+<script src="https://code.angularjs.org/1.4.3/angular-resource.js"></script>
+
+<!-- For loading Bar -->
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-animate.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
+
+<body class="listing-bg" data-ng-app="fitness" data-ng-controller="userHomeCtrl">
+<ul class="mobile-navigation clearfix">
+  <div class="vcenter-table">
+    <div class="vcenter-table-cell">
+      <li><a href="#" class="branding menu-brand"><img src="../images/logo.png" /></a></li>
+      <li><a href="#">Home</a></li>
+      <li class="twoNav"><a href="#">Login</a>/<a href="#">Sign Up</a></li>
+      <li><a href="#">Fitness Club</a></li>
+      <li><a href="#">Classes</a></li>
+    </div>
+  </div>
+</ul>
+<div class="wrapper clearfix"> 
+  <!-- Header -->
+  <header class="normal-header clearfix">
+    <div class="container clearfix">
+      <div class="toggle-nav"> <span class="fline"></span> <span class="lline"> </span> <span  class="act"></span> </div>
+      <!-- Branding --> 
+      <a href="#" class="branding"><img src="../images/logo.png" /></a> 
+      <!-- Branding End --> 
+      <!-- Up navigation -->
+      <ul class="upnavigation clearfix">
+        <li class="passes"><a href="#">Logout</a></li>
+      </ul>
+      <!-- Up navigation End  --> 
+      <!-- Toggle --> 
+      
+    </div>
+  </header>
+  <!-- Header End  --> 
+  <!-- Content -->
+  
+ <div class="container">
+	<!-- Changes by saurabh -->
+	<div class="row">
+	<div class="col-md-2 navigator gym-owner-pannel">
+				<div class="panel-group" id="panel-905280">
+					<div class="panel panel-default">
+						<div class="panel-heading" id="passes-sold-pannel">
+							<a class="panel-title" href="user_home.html">Activities</a>
+						</div>
+					</div>
+				</div>
+				<div class="panel-group" id="panel-905282">
+					<div class="panel panel-default">
+						<div class="panel-heading" id="passes-sold-pannel">
+							<a class="panel-title" href="user_password.html">Change Password 
+						    </a>
+						</div>
+					</div>
+				</div>
+				<div class="panel-group" id="panel-905283">
+					<div class="panel panel-default">
+						<div class="panel-heading" id="passes-sold-pannel">
+							<a class="panel-title" href="user_setting.html">Account Setting 
+						    </a>
+						</div>
+					</div>
+				</div>
+			</div>
+      <div class="products-listing-wrap clearfix col-md-10">
+	  <div>
+	  <ul id="ajax" class="products-list clearfix">
+	  <li class="scroll">
+            <div class="full-wrap">
+              <div class="row">
+                <div class="col-lg-12 col-sm-12 col-xs-12 col-md-12">
+                  <div class="gym-header-info"><b>My Activities</b></div>
+                </div>
+              </div>
+            </div>
+        </li>
+        </ul>
+     
+        <ul id="ajax" class="products-list clearfix" data-ng-repeat="usrActvty in userActvdata.data.usrActvty">
+          <li class="scroll">
+          
+            <figure><img class="gymImage" data-ng-src="{{usrActvty[2]}}" /></figure>
+            <div class="full-wrap" id="user-passinfo-outerbox">
+              <div class="listUp clearfix" id="user-passinfo">
+                <div class="head">
+                	<a href="#">{{usrActvty[0]}}</a>
+                <span>{{usrActvty[1]}}</span>
+                </div>
+                <div class="head" id="buy-again"> 
+                <h1></h1>
+                <button type="button" data-ng-click="buyAgain(usrActvty[8])" class="btn btn-danger">Buy {{usrActvty[0]}} Pass Again</button>
+                </div>
+                
+              </div>
+              	<table class="table table-bordered table-condensed">
+				<thead>
+					<tr>
+						
+						<th>
+							Activity Type
+						</th>
+						<th>
+							Booking Date
+						</th>
+						<th>
+							Cost
+						</th>
+						<th>
+							Pass Used On
+						</th>
+						<th>
+							Pass Valid
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						
+						<td>
+							{{usrActvty[3]}}
+						</td>
+						<td>
+							{{usrActvty[4]}}
+						</td>
+						<td>
+							{{usrActvty[5]}} INR
+						</td>
+						<td>
+							{{usrActvty[6]}}
+						</td>
+						<td>
+							{{usrActvty[7]}}
+						</td>
+					</tr>
+				</tbody>
+			</table>         
+            </div>
+          </li>
+        </ul>
+		</div>
+      </div>
+      </div>
+	  <div class="push"></div>
+    </div>
+  </div>
+  <footer class="clearfix">
+    <div class="container clearfix">
+      <div class="social-navigation"><a href="#"><i class="fa fa-twitter"></i></a> <a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i class="fa fa-google-plus"></i></a> </div>
+      <div class="copyright">Copyright &copy; 2015 FitnessKey </div>
+      <div class="full-wrap">
+        <ul class="footer-nav">
+          <li><a href="#">About</a></li>
+          <li><a href="#">For Partners</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Terms of Use</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+<!-- JS --> 
+<!-- Dropdown module -->
+<script src="../js/dropdown/nya-bs-public.js"></script>
+<script src="../js/dropdown/service-config.js"></script>
+<script src="../js/dropdown/nya-bs-select-ctrl.js"></script>
+<script src="../js/dropdown/nya-bs-select.js"></script>
+<script src="../js/dropdown/nya-bs-option.js"></script>
+
+<!-- Spinner File -->
+<script src="../js/spin.min.js"></script>
+<script src="../js/angular-spinner.js"></script>
+<!-- Angular Module -->
+<!-- Auto Complete -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.6/angular-touch.min.js"></script>
+<script src="../js/angucomplete-alt.js"></script>
+
+<!-- Module -->
+<script src="../js/fitness.js"></script>
+<!-- Service -->
+<script src="../js/services/service1.js"></script>
+<!-- Controller -->
+<script src="../js/controllers/ctrl.js"></script>
+
+<!-- JS --> 
+<script src="../js/jquery.min.js"></script> 
+<script src="../js/bootstrap.min.js"></script> 
+<script src="../js/custom.js"></script> 
+<script src="../js/owl.carousel.min.js"></script> 
+<script src="../js/bootstrap-hover-dropdown.min.js"></script> 
+<script src="../js/jquery.timepicker.js"></script>
+</body>
+</html>

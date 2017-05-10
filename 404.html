@@ -1,0 +1,223 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>FitnessKey</title>
+<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+<link href="css/layout.css" rel="stylesheet" type="text/css">
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+<link href="css/bootstrap-select.min.css" rel="stylesheet"
+	type="text/css">
+<script type="text/javascript" src="js/html5.js"></script>
+
+<!-- ForAuto Complete -->
+<link rel="stylesheet" href="css/autocomplete_landing.css"/>
+<link rel="stylesheet" href="css/structure.css"/>
+<link rel="stylesheet" href="css/angucomplete-alt.css"/>
+<!-- Angular Resource -->
+<script src="js/shared/angular.min.js"></script>
+<script src="https://code.angularjs.org/1.4.3/angular-resource.js"></script>
+
+<!-- For loading Bar -->
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-animate.min.js"></script>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+</head>
+
+<body class="listing-bg" data-ng-app="fitness" data-ng-controller="privacyCtrl">
+	<ul class="mobile-navigation clearfix">
+  <div class="vcenter-table">
+    <div class="vcenter-table-cell">
+      <li><a href="home.html" class="branding menu-brand"><img src="images/logo.png" /></a></li>
+      <li><a href="home.html">Home</a></li>
+      <li class="twoNav" data-ng-hide='userLogin'><a href="#" class="login-bgt">Login</a>/<a href="#" class="signup-bgt">Sign Up</a></li>
+      <li><a href="#" data-ng-show='userLogin'>Workout History</a></li>
+      <li><a href="#" data-ng-show='userLogin'>Change Password</a></li>
+      <li><a href="#" data-ng-show='userLogin'>Logout</a></li>
+      <!-- <li><a href="#">Fitness Club</a></li>
+      <li><a href="#">Classes</a></li> -->
+    </div>
+  </div>
+</ul>
+	<div class="wrapper clearfix">
+		<!-- Header -->
+		<header class="normal-header clearfix">
+			<div class="container clearfix">
+				<div class="toggle-nav">
+					<span class="fline"></span> <span class="lline"> </span> <span
+						class="act"></span>
+				</div>
+				<!-- Branding -->
+				<a href="home.html" class="branding"><img src="images/logo.png" /></a>
+				<!-- Branding End -->
+				<!-- Up navigation -->
+				<ul class="upnavigation clearfix">
+			        <li class="account" data-ng-show='userLogin'><a href="#">My Account</a></li>
+			        <li class="account" data-ng-show='userLogin'><a href="#">Logout</a></li>
+			        <li class="login" data-ng-hide='userLogin'><a href="#" class="login-bgt">Log In</a></li>
+			        <li class="signup" data-ng-hide='userLogin'><a href="#" class="signup-bgt">Sign Up</a></li>
+      			</ul>
+				<!-- Up navigation End  -->
+				<!-- Toggle -->
+
+			</div>
+		</header>
+		<!-- Header End  -->
+
+		<!-- Banner -->
+		<!--<div class="banner clearfix">
+    <figure><img src="images/banner_img2.jpg" /></figure>
+    <div class="contact-banner-caption">
+      <div class="container">
+        <div class="contact-ins-caption">
+          <h3>Grow your business<br>
+            with FitnessKey</h3>
+          <div class="contact-caption-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras congue ligula et pellentesque dignissim.</div>
+        </div>
+      </div>
+    </div>
+  </div>-->
+		<!-- Banner End -->
+
+		<!-- Content -->
+		<section class="clearfix">
+			<div class="container clearfix">
+				<div class="common-paddling3">
+					<div class="terms-of-use">
+						<h2>The page you requested was not found. Sorry :(
+					
+					</h2>
+						<p>
+							<b></b>
+						</p>
+						<h4>What you can do?</h4>
+						<p>
+							You can go to our <a href="home.html"><b>homepage</b></a> or <a
+								href="contact-us.html"><b>contact us.</b></a>
+						</p>
+					</div>
+				
+				<div class="push"></div>
+			</div>
+		</section>
+		</div>
+		<footer class="clearfix">
+			<div class="container clearfix">
+				<div class="social-navigation">
+					<a href="#"><i class="fa fa-twitter"></i></a> <a href="#"><i
+						class="fa fa-facebook"></i></a> <a href="#"><i
+						class="fa fa-google-plus"></i></a>
+				</div>
+				<div class="copyright">Copyright &copy; 2015 FitnessKey</div>
+				<div class="full-wrap">
+					<ul class="footer-nav">
+						<!-- <li><a href="#">About</a></li> -->
+						<li><a href="onboarding.html">For Partners</a></li>
+						<li><a href="FAQ.html">FAQ</a></li>
+						<!-- <li><a href="#">Contact</a></li> -->
+						<!-- <li><a href="#">Blog</a></li> -->
+						<li><a href="terms-of-use.html">Terms of Use</a></li>
+						<li><a href="privacy-policy.html">Privacy Policy</a></li>
+					</ul>
+				</div>
+			</div>
+		</footer>
+	</div>
+
+	<!-- Login And Signup -->
+	<div class="popup-overlay"></div>
+	<div class="close-popup">✕</div>
+	<div class="popups-main-wrapper">
+		<div class="popup-ins-wrapper">
+			<ul class="popup-nav-list">
+				<li><a href="#" class="logIn-btn">Log in</a></li>
+				<li><a href="#" class="signUp-btn">Sign up</a></li>
+			</ul>
+			<div class="login-popup popup-content-wrapper">
+				<a href="#" class="login-with-social"><img
+					src="images/facebook-login.png" /></a> <a href="#"
+					class="login-with-social"><img src="images/gplus_btn.png" /></a>
+				<div class="popup-or">or</div>
+				<div class="inp-box">
+					<input type="text" name="" value="" placeholder="Email" />
+				</div>
+				<div class="inp-box">
+					<input type="password" name="" value="" placeholder="Password" />
+				</div>
+				<button type="submit" class="popup-login-btn">Log In</button>
+				<div class="poppup-center-text">
+					<a href="#">Forgot my password?</a>
+				</div>
+			</div>
+			<div class="signup-popup popup-content-wrapper">
+				<a href="#" class="login-with-social"><img
+					src="images/facebook-login.png" /></a> <a href="#"
+					class="login-with-social"><img src="images/gplus_btn.png" /></a>
+				<div class="popup-or">or</div>
+				<div class="inp-box">
+					<input type="text" name="" value="" placeholder="Full Name" />
+				</div>
+				<div class="inp-box">
+					<input type="text" name="" value="" placeholder="Email" />
+				</div>
+				<div class="inp-box">
+					<input type="password" name="" value="" placeholder="Password" />
+				</div>
+				<button type="submit" class="popup-login-btn">Sign Up</button>
+				<div class="poppup-center-text">
+					By creating an account, I accept FitnessKey's <a href="#">Terms
+						of Service</a>.</a>.
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- JS -->
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/custom.js"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/bootstrap-hover-dropdown.min.js"></script>
+	<script src="js/bootstrap-select.min.js"></script>
+	<script src="js/jquery.lazyload-any.js"></script>
+	<script src="js/responsive-tabs.js"></script>
+<!-- Dropdown module -->
+<script src="js/dropdown/nya-bs-public.js"></script>
+<script src="js/dropdown/service-config.js"></script>
+<script src="js/dropdown/nya-bs-select-ctrl.js"></script>
+<script src="js/dropdown/nya-bs-select.js"></script>
+<script src="js/dropdown/nya-bs-option.js"></script>
+
+<!-- Spinner File -->
+<script src="js/spin.min.js"></script>
+<script src="js/angular-spinner.js"></script>
+<!-- Angular Module -->
+<!-- Auto Complete -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.6/angular-touch.min.js"></script>
+<script src="js/angucomplete-alt.js"></script>
+
+<!-- Module -->
+<script src="js/fitness.js"></script>
+<!-- Service -->
+<script src="js/services/service1.js"></script>
+<!-- Controller -->
+<script src="js/controllers/ctrl.js"></script>
+
+<!-- JS --> 
+<script src="js/jquery.min.js"></script> 
+<script src="js/bootstrap.min.js"></script> 
+<script src="js/custom.js"></script> 
+<script src="js/owl.carousel.min.js"></script> 
+<script src="js/bootstrap-hover-dropdown.min.js"></script> 
+<script src="js/jquery.timepicker.js"></script> 
+<script>
+		$(document).ready(function() {
+			$('.js-activated').dropdownHover().dropdown();
+		});
+	</script>
+	<!-- JS ends -->
+</body>
+</html>

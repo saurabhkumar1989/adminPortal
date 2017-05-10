@@ -1,0 +1,510 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>FitnessKey</title>
+<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+<link href="css/layout.css" rel="stylesheet" type="text/css">
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+<link href="css/bootstrap-select.min.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="js/html5.js"></script>
+<script src="js/jquery.min.js"></script> 
+
+<link rel="stylesheet" type="text/css" href="css/jquery.timepicker.css" />
+
+
+</head>
+
+<body class="listing-bg">
+<ul class="mobile-navigation clearfix">
+  <div class="vcenter-table">
+    <div class="vcenter-table-cell">
+      <li><a href="#" class="branding menu-brand"><img src="images/logo.png" /></a></li>
+      <li><a href="#">Home</a></li>
+      <li class="twoNav"><a href="#">Login</a>/<a href="#">Sign Up</a></li>
+      <li><a href="#">Fitness Club</a></li>
+      <li><a href="#">Classes</a></li>
+    </div>
+  </div>
+</ul>
+<div class="wrapper clearfix"> 
+  <!-- Header -->
+  <header class="normal-header clearfix">
+    <div class="container clearfix">
+      <div class="toggle-nav"> <span class="fline"></span> <span class="lline"> </span> <span  class="act"></span> </div>
+      <!-- Branding --> 
+      <a href="#" class="branding"><img src="images/logo.png" /></a> 
+      <!-- Branding End --> 
+      <!-- Up navigation -->
+      <ul class="upnavigation clearfix">
+        <li class="passes"><a href="#">Passes</a></li>
+        <li class="login"><a href="#" class="login-bgt">Log In</a></li>
+        <li class="signup"><a href="#" class="signup-bgt">Sign Up</a></li>
+      </ul>
+      <!-- Up navigation End  --> 
+      <!-- Toggle --> 
+      
+    </div>
+  </header>
+  <!-- Header End  --> 
+  
+  <!-- Banner -->
+  <div class="banner clearfix">
+    <figure><img src="images/banner_img2.jpg" /></figure>
+    <div class="contact-banner-caption">
+      <div class="container">
+        <div class="contact-ins-caption">
+          <h3>Grow your business<br>
+            with FitnessKey</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Banner End --> 
+  
+  <!-- Content -->
+  <section class="clearfix">
+    <div class="container clearfix">
+      <div class="common-paddling3">
+        <div class="for-partners">
+          <form id="profileForm" class="form-horizontal" method="post">
+            <h2>Contact Information</h2>
+            <div class="form-group">
+              <label class="col-lg-2 col-sm-3 control-label">Name<sup>*</sup></label>
+              <div class="col-lg-10 col-sm-9">
+                <input type="text" class="form-control" id="inputName" placeholder="Name">
+                <span id="nameInfo"></span> </div>
+            </div>
+            <div class="form-group">
+              <label class="col-lg-2 col-sm-3 control-label">Contact Number<sup>*</sup></label>
+              <div class="col-lg-10 col-sm-9">
+                <input type="text" class="form-control" id="inputNumber" placeholder="Mobile\Landline Number">
+                <span id="phoneInfo"></span> </div>
+            </div>
+            <div class="form-group">
+              <label class="col-lg-2 col-sm-3 control-label">Email<sup>*</sup></label>
+              <div class="col-lg-10 col-sm-9">
+                <input type="text" class="form-control" id="inputEmail" placeholder="Email">
+                <span id="emailInfo"></span> </div>
+            </div>
+            <h2>Gym/ Fitness Center Details</h2>
+            <div class="form-group">
+              <label class="col-lg-2 col-sm-3 control-label">Gym Name<sup>*</sup></label>
+              <div class="col-lg-10 col-sm-9">
+                <input type="text" class="form-control" id="inputGymName" placeholder="Gym Name">
+                <span id="gymnameInfo"></span> </div>
+            </div>
+            <div class="form-group">
+              <label class="col-lg-2 col-sm-3 control-label">Gym Description</label>
+              <div class="col-lg-10 col-sm-9">
+                <textarea class="form-control" rows="3" id="inputGymDesc" placeholder="A brief information about your Gym"></textarea>
+                <span id="inputGymDescInfo"></span> 
+                </div>
+            </div>
+            <div class="form-group">
+              <label class="col-lg-2 col-sm-3 control-label">Address<sup>*</sup></label>
+              <div class="col-lg-10 col-sm-9">
+                <input type="text" class="form-control" id="inputStreet1" placeholder="Street No. 1">
+                <input type="text" class="form-control" id="inputStreet2" placeholder="Street No. 2">
+                <span id="streetInfo"></span>
+                <input type="text" class="form-control" id="inputCity" placeholder="City">
+                <span id="cityInfo"></span>
+                <input type="text" class="form-control" id="inputPincode" placeholder="Pincode">
+                <span id="pincodeInfo"></span> </div>
+            </div>
+                 
+<!--                 
+		<div class="input-group clockpicker" data-placement="bottom" data-align="left" data-donetext="Done">
+			<input type="text" class="form-control" value="18:00">
+		</div>
+
+-->
+              <div class="form-group">
+              <label class="col-lg-2 col-sm-3 col-xs-12 control-label">Timing<sup>*</sup></label>
+              <div class="table-responsive">
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th>Days</th>
+                            <th>Open Timing</th>
+                            <th>Close Timing</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td><label><input type="checkbox" name="Sunday" id="days" value="sunday" /> Sunday </label></td>
+                            <td>
+                                    <input type="text" class="form-control time" name="openTime" placeholder="HH:MM AM" />
+                            </td>
+                            <td>
+                                    <input type="text" class="form-control time" name="closeTime" placeholder="HH:MM PM" />
+                            </td>
+                          </tr>
+                          <tr>
+                            <td><label><input type="checkbox" name="Monday" id="days" value="Monday" /> Monday </label></td>
+                            <td>
+                                    <input type="text" class="form-control time" name="openTime" placeholder="HH:MM AM" />
+                            </td>
+                            <td>
+                                    <input type="text" class="form-control time" name="closeTime" placeholder="HH:MM PM" />
+                            </td>
+                          </tr>
+                          <tr>
+                            <td><label><input type="checkbox" name="Tuesday" id="days" value="Tuesday" /> Tuesday </label></td>
+                            <td>
+                                    <input type="text" class="form-control time" name="openTime" placeholder="HH:MM AM" />
+                            </td>
+                            <td>
+                                    <input type="text" class="form-control time" name="closeTime" placeholder="HH:MM PM" />
+                            </td>
+                          </tr>
+                          <tr>
+                            <td><label><input type="checkbox" name="Wednesday" id="days" value="Wednesday" /> Wednesday </label></td>
+                            <td>
+                                    <input type="text" class="form-control time" name="openTime" placeholder="HH:MM AM" />
+                            </td>
+                            <td>
+                                    <input type="text" class="form-control time" name="closeTime" placeholder="HH:MM PM" />
+                            </td>
+                          </tr>
+                          <tr>
+                            <td><label><input type="checkbox" name="Thrusday" id="days" value="Thrusday" /> Thrusday </label></td>
+                            <td>
+                                    <input type="text" class="form-control time" name="openTime" placeholder="HH:MM AM" />
+                            </td>
+                            <td>
+                                    <input type="text" class="form-control time" name="closeTime" placeholder="HH:MM PM" />
+                            </td>
+                          </tr>
+                          <tr>
+                            <td><label><input type="checkbox" name="Friday" id="days" value="Monday" /> Friday </label></td>
+                            <td>
+                                    <input type="text" class="form-control time" name="openTime" placeholder="HH:MM AM" />
+                            </td>
+                            <td>
+                                    <input type="text" class="form-control time" name="closeTime" placeholder="HH:MM PM" />
+                            </td>
+                          </tr>
+                          <tr>
+                            <td><label><input type="checkbox" name="Saturday" id="days" value="Saturday" /> Saturday </label></td>
+                            <td>
+                                    <input type="text" class="form-control time" name="openTime" placeholder="HH:MM AM" />
+                            </td>
+                            <td>
+                                    <input type="text" class="form-control time" name="closeTime" placeholder="HH:MM PM" />
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    
+              <span id="daysInfo" class="col-xs-12 col-xs-offset-0 col-lg-offset-2 col-sm-9 col-sm-offset-3 col-lg-10 checkbox-error error-box"></span> </div>
+            
+                      
+            <div class="form-group">
+              <label class="col-lg-2 col-sm-3 col-xs-12 control-label">Activities<sup>*</sup></label>
+              <div class="col-lg-2 col-xs-6 col-sm-3 date-field">
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" name="Aerobics" id="activities" value="Aerobics" />
+                    Aerobics </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" name="Crossfit" id="activities" value="Crossfit" />
+                    Crossfit </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" name="Jacuzzi" id="activities" value="Jacuzzi" />
+                    Jacuzzi </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" name="Pilates" id="activities" value="Pilates" />
+                    Pilates </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" name="Sauna" id="activities" value="Sauna" />
+                    Sauna </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" name="Swimmin Pool" id="activities" value="Swimmin Pool" />
+                    Swimmin Pool </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" name="Yoga" id="activities" value="Yoga" />
+                    Yoga </label>
+                </div>
+              </div>
+              <div class="col-lg-2 col-xs-6 col-sm-3 date-field">
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" name="Belly Dancing" id="activities" value="Belly Dancing" />
+                    Belly Dancing </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" name="Dance" id="activities" value="Dance" />
+                    Dance </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" name="Kettlebell" id="activities" value="Kettlebell" />
+                    Kettlebell </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" name="Punch Bags" id="activities" value="Punch Bags" />
+                    Punch Bags </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" name="Spa" id="activities" value="Spa" />
+                    Spa </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" name="Tai Chi" id="activities" value="Tai Chi" />
+                    Tai Chi </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" name="Zumba" id="activities" value="Zumba" />
+                    Zumba </label>
+                </div>
+              </div>
+              <div class="col-lg-2 col-xs-6 col-sm-3 date-field">
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" name="Boxing Ring" id="activities" value="Boxing Ring" />
+                    Boxing Ring </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" name="Free Weights" id="activities" value="Free Weights" />
+                    Free Weights </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" name="Olympic Weights" id="activities" value="Olympic Weights" />
+                    Olympic Weights </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" name="Resistance Machines" id="activities" value="Resistance Machines" />
+                    Resistance Machines </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" name="Spinning/Cycling" id="activities" value="Spinning/Cycling" />
+                    Spinning/Cycling </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" name="TRX" value="TRX" id="activities" />
+                    TRX </label>
+                </div>
+              </div>
+              <div class="col-lg-2 col-xs-6 col-sm-12 col-sm-offset-3 col-lg-offset-0 date-field">
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" name="Cardio Machines" id="activities" value="Cardio Machines" />
+                    Cardio Machines </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" name="Group Exercise" id="activities" value="Group Exercise" />
+                    Group Exercise </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" name="Personal Training" id="activities" value="Personal Training" />
+                    Personal Training </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" name="Rowing" value="Rowing" id="activities" />
+                    Rowing </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" name="Steam Rooms" value="Steam Rooms" id="activities" />
+                    Steam Rooms </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" name="Weight Training" value="Weight Training" id="activities" />
+                    Weight Training </label>
+                </div>
+              </div>
+              <span id="activitiesInfo" class="col-xs-12 col-xs-offset-0 col-lg-offset-2 col-sm-9 col-sm-offset-3 col-lg-10 checkbox-error error-box"></span> </div>
+            <div class="form-group">
+              <label class="col-lg-2 col-sm-3 col-xs-12 control-label">Facilities<sup>*</sup></label>
+
+              <div class="col-xs-6 col-lg-2 col-sm-3 date-field">
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" name="Air Conditioning" id="facilities" value="Air Conditioning" />
+                    Air Conditioning </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" name="Showers" id="facilities" value="Showers" />
+                    Showers </label>
+                </div>
+              </div>
+              <div class="col-xs-6 col-lg-2 col-sm-3 date-field">
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" name="Cafe" id="facilities" value="Cafe" />
+                    Cafe </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" name="Wi-Fi" id="facilities" value="Wi-Fi" />
+                    Wi-Fi </label>
+                </div>
+              </div>
+              <div class="col-xs-6 col-lg-2 col-sm-3 date-field">
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" name="Lockers" id="facilities" value="Lockers" />
+                    Lockers </label>
+                </div>
+              </div>
+              <div class="col-lg-2 col-xs-6 col-sm-12 col-sm-3 col-lg-offset-0 date-field">
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" name="Parking" id="facilities" value="Parking" />
+                    Parking </label>
+                </div>
+              </div>
+              <span id="facilitiesInfo" class="col-xs-12 col-xs-offset-0 col-lg-offset-2 col-sm-9 col-sm-offset-3 col-lg-10 checkbox-error error-box"></span> </div>
+            <div class="form-group">
+              <label class="col-lg-2  col-sm-3 col-xs-12 control-label">How Did You Find Us?</label>
+              <div class="col-lg-2 col-sm-2 col-xs-6 date-field">
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" name="Option 1" value="Option 1" />
+                    Option 1 </label>
+                </div>
+              </div>
+              <div class="col-lg-2 col-sm-2 col-xs-6 date-field">
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" name="Option 2" value="Option 2" />
+                    Option 2 </label>
+                </div>
+              </div>
+              <div class="col-lg-2 col-sm-2 col-xs-6 date-field">
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" name="Option 3" value="Option 3" />
+                    Option 3 </label>
+                </div>
+              </div>
+              <div class="col-lg-2 col-sm-2 col-xs-6 date-field">
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" name="Option 4" value="Option 4" />
+                    Option 4 </label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-lg-10 col-sm-9 col-xs-12 col-sm-offset-3  col-xs-offset-0 col-lg-offset-2 control-label contactform">
+                <button type="submit" id="submit" class="submit-btn" name="signup" value="Sign up">Submit</button>
+                <button type="reset" class="cancel-btn" name="cancel" value="Cancel">Cancel</button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <!--end for-partners--> 
+      </div>
+    </div>
+  </section>
+  <footer class="clearfix">
+    <div class="container clearfix">
+      <div class="social-navigation"><a href="#"><i class="fa fa-twitter"></i></a> <a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i class="fa fa-google-plus"></i></a> </div>
+      <div class="copyright">Copyright &copy; 2015 FitnessKey </div>
+     <div class="full-wrap">
+          <ul class="footer-nav">
+          <!-- <li><a href="#">About</a></li> -->
+          <li><a href="onboarding.html">For Partners</a></li>
+          <li><a href="FAQ.html">FAQ</a></li>
+          <!-- <li><a href="#">Contact</a></li> -->
+          <!-- <li><a href="#">Blog</a></li> -->
+          <li><a href="terms-of-use.html">Terms of Use</a></li>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<!-- Login And Signup -->
+<div class="popup-overlay"></div>
+<div class="close-popup">✕</div>
+<div class="popups-main-wrapper">
+  <div class="popup-ins-wrapper">
+    <ul class="popup-nav-list">
+      <li><a href="#" class="logIn-btn">Log in</a></li>
+      <li><a href="#" class="signUp-btn">Sign up</a></li>
+    </ul>
+    <div class="login-popup popup-content-wrapper"> <a href="#" class="login-with-social"><img src="images/facebook-login.png" /></a> <a href="#" class="login-with-social"><img src="images/gplus_btn.png" /></a>
+      <div class="popup-or">or</div>
+      <div class="inp-box">
+        <input type="text" name="" value="" placeholder="Email" />
+      </div>
+      <div class="inp-box">
+        <input type="password" name="" value="" placeholder="Password" />
+      </div>
+      <button type="submit" class="popup-login-btn">Log In</button>
+      <div class="poppup-center-text"><a href="#">Forgot my password?</a></div>
+    </div>
+    <div class="signup-popup popup-content-wrapper"> <a href="#" class="login-with-social"><img src="images/facebook-login.png" /></a> <a href="#" class="login-with-social"><img src="images/gplus_btn.png" /></a>
+      <div class="popup-or">or</div>
+      <div class="inp-box">
+        <input type="text" name="" value="" placeholder="Full Name" />
+      </div>
+      <div class="inp-box">
+        <input type="text" name="" value="" placeholder="Email" />
+      </div>
+      <div class="inp-box">
+        <input type="password" name="" value="" placeholder="Password" />
+      </div>
+      <button type="submit" class="popup-login-btn">Sign Up</button>
+      <div class="poppup-center-text">By creating an account, I accept Coursera's <a href="#">Terms of Service</a> and <a href="3">Honor Code</a>.</div>
+    </div>
+  </div>
+</div>
+<!-- JS --> 
+<script src="js/bootstrap.min.js"></script> 
+<script src="js/custom.js"></script> 
+<script src="js/owl.carousel.min.js"></script> 
+<script src="js/bootstrap-hover-dropdown.min.js"></script> 
+<script src="js/bootstrap-select.min.js"></script> 
+<script src="js/jquery.lazyload-any.js"></script> 
+<script src="js/responsive-tabs.js"></script> 
+<script src="js/jquery.timepicker.js"></script>
+
+<script>
+	$(function() {
+		$('.time').timepicker();
+	});
+</script>
+
+
+<script>
+$(document).ready(function() {
+  $('.js-activated').dropdownHover().dropdown();    
+});
+</script> 
+<!-- JS ends -->
+</body>
+</html>

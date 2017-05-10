@@ -1,0 +1,16 @@
+@media (max-width: 540px){
+.products-slider .slider-details .head a{
+font-size: 18px;
+}
+.products-slider .slider-details .head span {
+
+    font-size: 10px;
+   
+}
+.products-slider .slider-details .head span .view-map {
+    font-size: 10px;
+}
+.products-slider .slider-details .reviews{
+font-size: 10px;
+}
+}

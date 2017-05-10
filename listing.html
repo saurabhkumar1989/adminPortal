@@ -1,0 +1,276 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+<link rel="icon" href="images/favicon.ico" type="image/x-icon">
+<title>FitnessKey</title>
+<link href="css/layout.css" rel="stylesheet" type="text/css">
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+<link href="css/owl.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="js/html5.js"></script>
+
+<link rel="stylesheet" href="css/nya-bs-select.css" />
+<link rel="stylesheet"href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+<!-- Angular Js File -->
+<script src="js/shared/angular.min.js"></script>
+<script src="https://code.angularjs.org/1.4.3/angular-resource.js"></script>
+<!-- For loading Bar -->
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-animate.min.js"></script>
+<!-- ForAuto Complete -->
+<link rel="stylesheet" href="css/autocomplete_listing.css"/>
+<link rel="stylesheet" href="css/structure.css"/>
+<link rel="stylesheet" href="css/angucomplete-alt.css"/>
+</head>
+
+<body class="listing-bg" data-ng-app="fitness" data-ng-controller="listCtrl">
+	<ul class="mobile-navigation clearfix">
+  <div class="vcenter-table">
+    <div class="vcenter-table-cell">
+      <li><a href="home.html" class="branding menu-brand"><img src="images/logo.png" /></a></li>
+      <li><a href="home.html">Home</a></li>
+      <li class="twoNav" data-ng-hide='userLogin'><a href="#" class="login-bgt">Login</a>/<a href="#" class="signup-bgt">Sign Up</a></li>
+      <li><a href="#" data-ng-show='userLogin'>Workout History</a></li>
+      <li><a href="#" data-ng-show='userLogin'>Change Password</a></li>
+      <li><a href="#" data-ng-show='userLogin'>Logout</a></li>
+      <!-- <li><a href="#">Fitness Club</a></li>
+      <li><a href="#">Classes</a></li> -->
+    </div>
+  </div>
+</ul>
+	<div class="wrapper clearfix">
+		<!-- Header -->
+		<header class="normal-header clearfix">
+			<div class="container clearfix">
+				<div class="toggle-nav">
+					<span class="fline"></span> <span class="lline"> </span> <span
+						class="act"></span>
+				</div>
+				<!-- Branding -->
+				<a href="home.html" class="branding"><img src="images/logo.png" /></a>
+				<!-- Branding End -->
+				<!-- Up navigation -->
+				<ul class="upnavigation clearfix">
+					<li class="account" data-ng-show='userLogin'><a href="#">My
+							Account</a></li>
+					<li class="account" data-ng-show='userLogin'><a href="#">Logout</a></li>
+					<li class="login" data-ng-hide='userLogin'><a href="#"
+						class="login-bgt">Log In</a></li>
+					<li class="signup" data-ng-hide='userLogin'><a href="#"
+						class="signup-bgt">Sign Up</a></li>
+				</ul>
+				<!-- Up navigation End  -->
+				<!-- Toggle -->
+
+			</div>
+		</header>
+		<!-- Header End  -->
+		<!-- Content -->
+		<section class="clearfix" >
+			<div class="listing-searchbox clearfix">
+				<div class="container clearfix">
+					<!-- Changes By Saurabh -->
+					<div class="row">
+					<div class="searchContent" id="searchContent">
+					<div class="padded-row col-md-4 col-xs-12">
+	          			<div data-angucomplete-alt id="ex1" placeholder="Location" maxlength="50" pause="100" selected-object="selectedlocation" local-data="sector" search-fields="name" title-field="name" minlength="1" input-class="form-control form-control-small" match-class="highlight">
+	         			 </div>
+        			</div>
+					<!-- 	<div class="list-search col-md-4 col-xs-12" id="list-search">
+							<input type="text" data-ng-model="customer.location"
+								placeholder="Your location" />
+						</div> -->
+						<div class="gym-search col-md-4 col-xs-6" id="gym-search">
+							
+							<ol id="values-example" data-live-search="true" class="nya-bs-select" data-ng-model="data.multipleSelect" data-ng-change=click1() multiple>
+								<li nya-bs-option="option in options">
+								<a> {{option}} 
+								<span class="glyphicon glyphicon-ok check-mark"></span>
+								</a>
+								</li>
+							</ol>
+						</div>
+						<div class="searchButton col-md-4 col-xs-6 text-center"id="searchButton">
+							<button type="submit" class="search-pass" data-ng-click=sendLocation()>Search
+								Pass</button>
+						</div>
+					</div>
+					</div>
+					<!-- Changes Ends -->
+				</div>
+				<span class="process" us-spinner spinner-key="spinner-1"></span>
+			</div>
+			<div class="container">
+			<div class="products-listing-wrap clearfix">
+	  <!--  Button to check spinner
+	  <button ng-click="startSpin()">Start spinner</button>
+	  <button ng-click="stopSpin()">Stop spinner</button> -->
+	  <div class="searchinfo">
+	   
+		<div ng-if="busy">
+			<div class="result-found">Searching....</div>
+			
+			
+		</div>
+		<div ng-if="!busy">
+	    <div ng-if="filtered.length > 0">
+			<div class="result-found">{{filtered.length}} results found <span></span></div>
+	  </div>
+	  <div ng-if="filtered.length == 0">
+			<div class="result-found">We're really sorry there are no results found matching that criteria.<b> Please try again.</b></div>
+			<ul id="ajax" class="products-list clearfix">
+          <li class="scroll">
+			  <ul style="list-style-type:disc">
+			   <div class="searchSuggetion" id="searchSuggetion">
+				<div class="searchHeading"> Search Suggestion</b></div>
+			    <div class="searchContent">
+					  <li>Change Your Location</li>
+					  <li>Select Different Set of Classes</li>
+				</div>
+			   </div>
+			</ul>
+            
+          </li>
+        </ul>
+	  </div>
+	  </div>
+	</div>
+	  <div>
+        <ul id="ajax" class="products-list clearfix">
+          <li class="scroll" data-ng-repeat="data in filtered = (testData.spInfoList| multiplefilter: data.multipleSelect:enableFilter)">
+            <figure><a href="" a href="" data-ng-click=gymDetail(data.spId)><img data-ng-src="{{data.imgpath[0]}}" /></a></figure>
+            <div class="full-wrap">
+              <div class="listUp clearfix">
+                <div class="head"> <a href="" data-ng-click=gymDetail(data.spId)><div class="gymname">{{data.shrtText}}</div></a> <span>{{data.priAddress}}</span> </div>
+                <div class="reviews">
+                  <figure><img src="images/search_ico.png" /></figure>
+                  <span>5 reviews</span> </div>
+                <p class="paragraph">{{data.lngText|limitTo : 250}}<a href="" data-ng-click=gymDetail(data.spId)> ...more</a></p>                
+              </div>
+              <div class="row" id='gym-pass-information'>
+			  
+                <div class="col-lg-6 col-sm-6 col-xs-6">
+                  <div class="days-price">{{data.servicesList[0].spServiceShortTxt}}</div>
+                </div>
+                <div class="col-lg-6 col-sm-6 col-xs-6">
+                  <div class="days-price" id="cost" align="right">INR {{data.servicesList[0].cost}}</div>
+                </div>
+                <!-- <div class="col-lg-4 col-sm-4 col-xs-4"><a href="#" class="buy-now">Buy Now</a></div> -->
+              </div>
+            </div>
+          </li>
+        </ul>
+		</div>
+      </div>
+	  <div class="push"></div>
+			</div>
+		</section>
+		</div>
+		<footer class="clearfix">
+			<div class="container clearfix">
+				<div class="social-navigation">
+					<a href="#"><i class="fa fa-twitter"></i></a> <a href="#"><i
+						class="fa fa-facebook"></i></a> <a href="#"><i
+						class="fa fa-google-plus"></i></a>
+				</div>
+				<div class="copyright">Copyright &copy; 2015 FitnessKey</div>
+				<div class="full-wrap">
+					  <ul class="footer-nav">
+          <!-- <li><a href="#">About</a></li> -->
+          <li><a href="onboarding.html">For Partners</a></li>
+          <li><a href="FAQ.html">FAQ</a></li>
+          <!-- <li><a href="#">Contact</a></li> -->
+          <!-- <li><a href="#">Blog</a></li> -->
+          <li><a href="terms-of-use.html">Terms of Use</a></li>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+        </ul>
+				</div>
+			</div>
+		</footer>
+	
+	<!-- Login And Signup -->
+	<div class="popup-overlay"></div>
+	<div class="close-popup">✕</div>
+	<div class="popups-main-wrapper">
+		<div class="popup-ins-wrapper">
+			<ul class="popup-nav-list">
+				<li><a href="#" class="logIn-btn">Log in</a></li>
+				<li><a href="#" class="signUp-btn">Sign up</a></li>
+			</ul>
+			<div class="login-popup popup-content-wrapper">
+				<a href="#" class="login-with-social"><img
+					src="images/facebook-login.png" /></a> <a href="#"
+					class="login-with-social"><img src="images/gplus_btn.png" /></a>
+				<div class="popup-or">or</div>
+				<div class="inp-box">
+					<input type="text" name="" value="" placeholder="Email" />
+				</div>
+				<div class="inp-box">
+					<input type="password" name="" value="" placeholder="Password" />
+				</div>
+				<button type="submit" class="popup-login-btn">Log In</button>
+				<div class="poppup-center-text">
+					<a href="#">Forgot my password?</a>
+				</div>
+			</div>
+			<div class="signup-popup popup-content-wrapper">
+				<a href="#" class="login-with-social"><img
+					src="images/facebook-login.png" /></a> <a href="#"
+					class="login-with-social"><img src="images/gplus_btn.png" /></a>
+				<div class="popup-or">or</div>
+				<div class="inp-box">
+					<input type="text" name="" value="" placeholder="Full Name" />
+				</div>
+				<div class="inp-box">
+					<input type="text" name="" value="" placeholder="Email" />
+				</div>
+				<div class="inp-box">
+					<input type="password" name="" value="" placeholder="Password" />
+				</div>
+				<button type="submit" class="popup-login-btn">Sign Up</button>
+				<div class="poppup-center-text">
+					By creating an account, I accept FitnessKey's <a href="#">Terms
+						of Service</a>.</a>.
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- JS -->
+	<!-- Auto Complete -->
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.6/angular-touch.min.js"></script>
+	<script src="js/angucomplete-alt.js"></script>
+	
+	<!-- Dropdown module -->
+	<script src="js/dropdown/nya-bs-public.js"></script>
+	<script src="js/dropdown/service-config.js"></script>
+	<script src="js/dropdown/nya-bs-select-ctrl.js"></script>
+	<script src="js/dropdown/nya-bs-select.js"></script>
+	<script src="js/dropdown/nya-bs-option.js"></script>
+	
+	<!-- Spinner File -->
+	<script src="js/spin.min.js"></script>
+	<script src="js/angular-spinner.js"></script>
+	
+	<!-- Angular Module -->
+
+	<!-- Module -->
+	<script src="js/fitness.js"></script>
+	<!-- Service -->
+	<script src="js/services/service1.js"></script>
+	<!-- Controller -->
+	<script src="js/controllers/ctrl.js"></script>
+	<!-- Filter -->
+	<script src="js/filter/filter.js"></script>
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/custom.js"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/bootstrap-hover-dropdown.min.js"></script>
+	<script src="js/jquery.lazyload-any.js"></script>
+	<!-- JS ends -->
+</body>
+</html>
