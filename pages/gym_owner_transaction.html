@@ -1,1 +1,114 @@
-<div><ul id="ajax" class="products-list clearfix"><li class="scroll"><div class="full-wrap"><div class="row"><div class="col-lg-12 col-sm-12 col-xs-12 col-md-12"><div class="gym-header-info"><b>Transaction Informaion</b></div></div></div></div></li><li class="scroll"><div class="full-wrap"><h4><b>Filter Values</b></h4><div class="filter-area row "><form role="form"><div class="form-group"><div class="year-drop-down col-lg-4 col-sm-4 col-xs-4 col-md-4"><label for="sel1">Select Year</label> <selectclass="form-control" id="month-select" data-ng-init="selected.month='0'" data-ng-model="selected.month"><option value="0">January</option><option value="1">February</option><option value="2">March</option><option value="3">April</option><option value="4">May</option><option value="5">June</option><option value="6">July</option><option value="7">August</option><option value="8">September</option><option value="9">October</option><option value="10">November</option><option value="11">December</option></select></div><div class="month-drop-down col-lg-4 col-sm-4 col-xs-4 col-md-4"><label for="sel1">Select Month</label> <select class="form-control" id="year-select" data-ng-init="selected.year='0'" data-ng-model="selected.year"><option value="0">2015</option><option value="1">2016</option><option value="2">2017</option><option value="3">2018</option><option value="4">2019</option></select></div><div class="filter-button col-lg-4 col-sm-4 col-xs-4 col-md-4"><button type="button" class="btn btn-danger"data-ng-click=updateData()>Filter Below Data</button></div></div></form></div><hr><h4><b>Detail Information</b></h4><p>*By default current month data will be shown</p><div class="row amount-info"><div class="col-md-12"><table class="table table-hover table-condensed table-bordered"><thead><tr><th>#</th><th>Pass Id</th><th>Person Name</th><th>Purchase Date</th><th>Amount</th></tr></thead><tbody data-ng-repeat="data in transData"><tr class="active"><td>{{$index +1}}</td><td>{{data.passId}}</td><td>{{data.personName}}</td><td>{{data.purchaseDate | date:'medium'}}</td><td>{{data.cost}}</td></tr></tbody></table></div></div></div><p><b>*After deducting our charges</b><br><b>*Expired passeswill not be displayed.</b></p></li><li class="scroll"><div class="full-wrap"><div class="row amount-info"><div class="col-lg-6 col-sm-6 col-xs-6 col-md-6"><div class="person-name">Total Amout Paid : <b>{{amountPaid}}</b></div></div><div class="col-lg-6 col-sm-6 col-xs-6 col-md-6"><div class="person-name">Total Amout Due : <b>{{amountRemain}}</b></div></div></div></div></li></ul></div>
+<div>
+	<ul id="ajax" class="products-list clearfix">
+		<li class="scroll">
+			<div class="full-wrap">
+				<div class="row">
+					<div class="col-lg-12 col-sm-12 col-xs-12 col-md-12">
+						<div class="gym-header-info">
+							<b>Transaction Informaion</b>
+						</div>
+					</div>
+				</div>
+			</div>
+		</li>
+		<li class="scroll">
+			<div class="full-wrap">
+				<h4>
+					<b>Filter Values</b>
+				</h4>
+				<div class="filter-area row ">
+					<form role="form">
+						<div class="form-group">
+							<div class="year-drop-down col-lg-4 col-sm-4 col-xs-4 col-md-4">
+								<label for="sel1">Select Year</label> 
+								<select	class="form-control" id="month-select" data-ng-init="selected.month='0'" data-ng-model="selected.month">
+									<option value="0">January</option>
+									<option value="1">February</option>
+									<option value="2">March</option>
+									<option value="3">April</option>
+									<option value="4">May</option>
+									<option value="5">June</option>
+									<option value="6">July</option>
+									<option value="7">August</option>
+									<option value="8">September</option>
+									<option value="9">October</option>
+									<option value="10">November</option>
+									<option value="11">December</option>
+								</select>
+							</div>
+							<div class="month-drop-down col-lg-4 col-sm-4 col-xs-4 col-md-4">
+								<label for="sel1">Select Month</label> 
+								<select class="form-control" id="year-select" data-ng-init="selected.year='0'" data-ng-model="selected.year">
+									<option value="0">2015</option>
+									<option value="1">2016</option>
+									<option value="2">2017</option>
+									<option value="3">2018</option>
+									<option value="4">2019</option>
+
+								</select>
+							</div>
+							<div class="filter-button col-lg-4 col-sm-4 col-xs-4 col-md-4">
+								<button type="button" class="btn btn-danger"
+									data-ng-click=updateData()>Filter Below Data</button>
+							</div>
+						</div>
+					</form>
+				</div>
+
+				<hr>
+				<h4>
+					<b>Detail Information</b>
+				</h4>
+				<p>*By default current month data will be shown</p>
+				<div class="row amount-info">
+					<div class="col-md-12">
+						<table class="table table-hover table-condensed table-bordered">
+							<thead>
+								<tr>
+									<th>#</th>
+									<th>Pass Id</th>
+									<th>Person Name</th>
+									
+									<th>Purchase Date</th>
+									<th>Amount</th>
+								</tr>
+							</thead>
+							<tbody data-ng-repeat="data in transData">
+								<tr class="active">
+									<td>{{$index +1}}</td>
+									<td>{{data.passId}}</td>
+									<td>{{data.personName}}</td>
+									
+									<td>{{data.purchaseDate | date:'medium'}}</td>
+									<td>{{data.cost}}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<p>
+				<b>*After deducting our charges</b><br> <b>*Expired passes
+					will not be displayed.</b>
+			</p>
+		</li>
+		<li class="scroll">
+			<div class="full-wrap">
+				<div class="row amount-info">
+					<div class="col-lg-6 col-sm-6 col-xs-6 col-md-6">
+
+						<div class="person-name">
+							Total Amout Paid : <b>{{amountPaid}}</b>
+						</div>
+					</div>
+					<div class="col-lg-6 col-sm-6 col-xs-6 col-md-6">
+						<div class="person-name">
+							Total Amout Due : <b>{{amountRemain}}</b>
+						</div>
+					</div>
+				</div>
+			</div>
+		</li>
+	</ul>
+
+</div>
